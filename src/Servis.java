@@ -12,7 +12,7 @@ public class Servis {
     }
 
     public void addTask(Task task) {
-        mapOfTasks.put(task.getId(), task);
+        mapOfTasks.put(task.getCounter(), task);
     }
 
     public void removeTask(int id) {

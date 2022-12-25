@@ -6,7 +6,8 @@ import java.time.LocalDateTime;
 public class Daily extends Task implements Repeat {
 
     public Daily(String name, String description, boolean workIs, LocalDateTime dateAndTime) {
-        super(name, description, workIs, id, dateAndTime);
+        super(name, description, workIs, dateAndTime);
+
     }
 
 

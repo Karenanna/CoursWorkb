@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     private static Servis servis;
-    public static void main(String[] args) {
+    public static void main(String[] args){
         servis = new Servis();
         try (Scanner scanner = new Scanner(System.in)) {
             label:

@@ -9,14 +9,14 @@ public class Task {
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm;ss");
 
-   private String name;
+    private String name;
     private String description;
     private boolean workIs;
-    public int id;
+    private static int id;
     protected LocalDateTime dateAndTime;
     private static int counter;
 
-    public Task(String name, String description, boolean workIs, int id, LocalDateTime dateAndTime) {
+    public Task(String name, String description, boolean workIs, LocalDateTime dateAndTime) {
         this.name = name;
         this.description = description;
         this.workIs = workIs;
@@ -36,8 +36,8 @@ public class Task {
         return workIs;
     }
 
-    public int getId() {
-        return id;
+    public int getCounter() {
+        return counter;
     }
 
     public LocalDateTime getDateAndTime() {
@@ -59,7 +59,7 @@ public class Task {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", workIs=" + workIs +
-                ", id=" + id +
+                ", id=" + counter +
                 ", dateAndTime=" + dateAndTime +
                 '}';
     }
@@ -69,11 +69,12 @@ public class Task {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return workIs == task.workIs && id == task.id && Objects.equals(name, task.name) && Objects.equals(description, task.description) && Objects.equals(dateAndTime, task.dateAndTime);
+        return workIs == task.workIs  && Objects.equals(name, task.name) &&
+                Objects.equals(description, task.description) && Objects.equals(dateAndTime, task.dateAndTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, workIs, id, dateAndTime);
+        return Objects.hash(name, description, workIs, dateAndTime);
     }
 }
