@@ -10,9 +10,9 @@ public class Weekly extends Task implements Repeat {
 
 
     public boolean checkSuitable(LocalDate date) {
-        return date.getDayOfWeek() == dateAndTime.getDayOfWeek();
-        if (date.isAfter(dateAndTime)) {
-            return true;
-        }
+        return (date.isAfter(dateAndTime.toLocalDate()) && date.getDayOfWeek()
+                == dateAndTime.getDayOfWeek()) ||
+                date.isEqual(dateAndTime.toLocalDate());
+
     }
 }
